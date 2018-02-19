@@ -9,6 +9,8 @@ public class MovingTarget : MonoBehaviour
 
     Vector3 initialPosition;
 
+    public Vector3 movementDirection;
+
     void Start()
     {
         initialPosition = transform.position;
@@ -18,6 +20,6 @@ public class MovingTarget : MonoBehaviour
     {
         // Move the target with a smooth cosine wave
         var x = magnitude * Mathf.Cos(Time.time / timePerCycle * 2 * Mathf.PI);
-        transform.position = initialPosition + Vector3.left * x;
+        transform.position = initialPosition + movementDirection * x;
     }
 }
